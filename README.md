@@ -54,6 +54,37 @@ Built with **Next.js**, the project focuses on accessibility, simplicity, and me
 - **Hosting**: Vercel or any cloud platform
 
 ---
+✅ Language & Framework
+Language: JavaScript (or TypeScript, if preferred)
+
+Framework: React (as used inside Next.js)
+
+Meta-framework: Next.js with the App Router (which uses React under the hood)
+
+✅ Styling
+Base: CSS Modules (default in Next.js)
+
+Optional Extensions:
+
+Tailwind CSS: Utility-first, fast prototyping
+
+Sass/SCSS: More structured and nested styling
+
+✅ Database
+Planned: MongoDB
+
+Access via Mongoose (schema-based ODM)
+
+Or Prisma (powerful TypeScript ORM that now supports MongoDB)
+
+✅ Hosting
+Primary Choice: Vercel (best for Next.js)
+
+Alternative: Any cloud/VPS that supports Node.js (e.g., Render, Railway, Heroku, etc.)
+
+This project is working in a JavaScript/React ecosystem, specifically using Next.js (App Router) which gives you hybrid rendering (SSR + SSG + ISR) and tight integration with frontend/backend logic.
+
+---
 
 ## 📁 Folder Structure
 
@@ -128,3 +159,5 @@ Contributions are welcome! Fork the repo, make changes, and submit a pull reques
 📃 License
 MIT License © 2025 – Train-Up-A-Child Initiative
 
+#### This project is on going: next step
++ how to start the backend using MongoDB 
