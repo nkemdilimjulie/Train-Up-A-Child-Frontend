@@ -7,6 +7,7 @@ export default function Navbar() {
       <Link href="/">Home</Link> |{' '}
       <Link href="/about">About Us</Link> |{' '}
       <Link href="/sponsors">Sponsors</Link> |{' '}
+      <Link href="/donate">Donate</Link> |{' '}
       <Link href="/children">Needy Children</Link> |{' '}
       <Link href="/contact">Contact</Link>
     </nav>
