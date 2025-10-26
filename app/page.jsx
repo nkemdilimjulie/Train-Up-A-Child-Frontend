@@ -94,8 +94,8 @@ export default function Home() {
       <header className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-800">Welcome to Train-Up-A-Child Charity Organization !!! <br /> <br /></h1>
         <p className="mt-2 text-lg text-gray-600">
-          Empowering underprivileged children through sponsorships <br />
-          Help to sponsor poor children's education and support their wellbeing in remote areas        </p>
+          Empowering underprivileged children through sponsorships. <br />
+          Help to sponsor poor children's education and support their wellbeing in remote areas.        </p>
       </header>
 
       <main className="flex flex-col md:flex-row gap-6">

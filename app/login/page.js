@@ -15,7 +15,7 @@ export default function LoginPage() {
   const searchParams = useSearchParams();
   const { login } = useAuth();
 
-  // Pre-fill username if query param exists
+  // Pre-fill username if coming from register redirect
   useEffect(() => {
     const queryUsername = searchParams.get("username");
     if (queryUsername) setUsername(queryUsername);
@@ -40,22 +40,27 @@ export default function LoginPage() {
         return;
       }
 
-      // Save login state in context
+      // Save login in context
       login({
         username: data.username,
         is_sponsor: data.is_sponsor,
-        is_guest: data.is_guest,
         is_child: data.is_child,
+        is_guest: data.is_guest,
       });
 
-      // Redirect based on user type
+      // Redirect based on role
       if (data.is_sponsor) {
-        router.push("/sponsors"); // sponsor form page
+        router.push("/donate"); // Sponsor → Donate page
+      } else if (data.is_child) {
+        router.push("/children"); // Child → Children list page
+      } else if (data.is_guest) {
+        router.push("/guest"); // Guest → Guest page
       } else {
-        router.push("/children"); // regular user
+        router.push("/"); // fallback for unknown role
       }
     } catch (err) {
-      setError("An error occurred. Try again.");
+      console.error(err);
+      setError("An unexpected error occurred. Try again.");
     }
   };
 
@@ -63,6 +68,7 @@ export default function LoginPage() {
     <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow">
       <h1 className="text-2xl font-bold mb-4">Login</h1>
       {error && <p className="text-red-500 mb-2">{error}</p>}
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -93,7 +99,7 @@ export default function LoginPage() {
 
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded w-full"
+          className="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700 transition"
         >
           Login
         </button>
