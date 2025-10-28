@@ -111,7 +111,7 @@ export default function Home() {
         >
           Login
         </Link>
-       
+        
       </main>
 
       <footer className="mt-16 text-center text-gray-500">
