@@ -82,7 +82,7 @@ export default function SponsorFormPage() {
         <p className="text-gray-700">
           <b>To become a Sponsor:</b> Register first.
           <br />
-          (Click the <b>sponsor</b> role on the registration form)
+          (Click Register. Remember to select the <b>sponsor</b> role on the registration form)
         </p>
       </div>
 

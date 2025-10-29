@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "../../context/AuthContext";
 import { Eye, EyeOff } from "lucide-react";
+import FastDonation from "@/components/FastDonation";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -68,6 +69,8 @@ export default function LoginPage() {
     <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow">
       <h1 className="text-2xl font-bold mb-4">Login</h1>
       {error && <p className="text-red-500 mb-2">{error}</p>}
+
+      <FastDonation/>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input

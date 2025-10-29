@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
+import FastDonation from "@/components/FastDonation";
 
 export default function RegisterPage() {
   const [username, setUsername] = useState("");
@@ -80,6 +81,8 @@ export default function RegisterPage() {
     <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow">
       <h1 className="text-2xl font-bold mb-4">Register</h1>
       {error && <p className="text-red-500 mb-2">{error}</p>}
+
+      <FastDonation/>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Username */}
