@@ -96,6 +96,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
@@ -112,7 +113,6 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
-  // Determine active link
   const isActive = (path) =>
     pathname === path
       ? "text-amber-400 font-semibold underline underline-offset-4"
@@ -122,10 +122,19 @@ export default function Navbar() {
     <>
       {/* ✅ Glassmorphism Sticky Navbar */}
       <nav className="fixed top-0 left-0 w-full backdrop-blur-md bg-blue-600/80 text-white shadow-md z-50 transition-all duration-300">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-bold tracking-tight drop-shadow-md">
-            Train-Up-A-Child
+        <div className="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between">
+          {/* Logo and Title */}
+          <Link href="/" className="flex items-center space-x-3 group">
+            <Image
+              src="/images/truac_logo.jpg"
+              alt="Train Up A Child Logo"
+              width={48}
+              height={48}
+              className="rounded-full border-2 border-white group-hover:scale-105 transition-transform duration-300"
+            />
+            <span className="text-xl md:text-2xl font-extrabold tracking-tight drop-shadow-sm group-hover:text-yellow-300 transition-colors">
+              Train Up A Child
+            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -137,7 +146,12 @@ export default function Navbar() {
             <Link href="/guest" className={isActive("/guest")}>Guests</Link>
             <Link href="/login" className={isActive("/login")}>Login</Link>
             <Link href="/register" className={isActive("/register")}>Register</Link>
-            <Link href="/donate" className={isActive("/donate")}>Donate</Link>
+            <Link
+              href="/donate"
+              className="bg-yellow-400 text-blue-900 px-3 py-1.5 rounded font-semibold hover:bg-yellow-300 transition"
+            >
+              Donate
+            </Link>
 
             {isLoggedIn && (
               <button

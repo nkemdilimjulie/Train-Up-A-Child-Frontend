@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion"; // ✅ Framer Motion import
+import { motion } from "framer-motion";
 
 export default function DonatePage() {
   const [amount, setAmount] = useState("");
@@ -88,13 +88,16 @@ export default function DonatePage() {
           className="border p-3 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400"
         />
 
-        <button
+        {/* Animate button hover with Framer Motion */}
+        <motion.button
           onClick={handleDonate}
-          className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-700 transition"
+          className="bg-green-600 text-white px-4 py-2 rounded w-full"
           disabled={loading}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           {loading ? "Processing..." : "Donate"}
-        </button>
+        </motion.button>
       </motion.div>
     </div>
   );
