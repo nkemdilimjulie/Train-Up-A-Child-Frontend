@@ -41,11 +41,23 @@ export default function AboutPage() {
     "/images/gallery/pic7.jpg",
   ];
 
+  const link = "https://www.biblegateway.com/quicksearch/?quicksearch=train+up+a+child&version=KJV";
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-12 bg-white rounded-lg shadow-sm relative">
       <h1 className="text-3xl font-bold text-center text-blue-700 mb-6">
         About Train-Up-A-Child
       </h1>
+
+      <div className="bg-green-50 border-l-4 border-green-400 p-3 mb-6 rounded text-sm text-gray-700">
+        Train up a child in the way he should go: and when he is old, he will not depart from it.{" "}
+        <a
+          href={link}
+          className="text-green-700 underline font-semibold hover:text-green-900"
+        >
+          Proverbs 22:6
+      </a>.
+      </div>
 
       <p className="text-gray-700 text-lg leading-relaxed mb-6">
         <strong>Train-Up-A-Child</strong> is a compassionate initiative dedicated
