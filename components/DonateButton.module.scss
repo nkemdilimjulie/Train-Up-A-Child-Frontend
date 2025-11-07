@@ -1,0 +1,20 @@
+/* DonateButton.module.scss */
+$brand-color: #10b981; // Tailwind emerald-500 color
+
+.button {
+  background-color: $brand-color;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: darken($brand-color, 10%);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

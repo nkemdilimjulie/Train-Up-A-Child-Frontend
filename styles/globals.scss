@@ -1,0 +1,22 @@
+
+/* eslint-disable */
+/* @format */
+/* postcss */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Custom SCSS
+$brand-color: #4f46e5;
+
+.button-custom {
+  background-color: $brand-color;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+
+  &:hover {
+    background-color: darken($brand-color, 10%);
+  }
+}
