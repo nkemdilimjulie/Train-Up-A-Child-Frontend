@@ -172,6 +172,7 @@ export default function Navbar({ showSponsorMenu = false }) {
                 <Link href="/guest" className={isActive("/guest")}>Guests</Link>
                 <Link href="/login" className={isActive("/login")}>Login</Link>
                 <Link href="/register" className={isActive("/register")}>Register</Link>
+                <Link href="/documentation" className={isActive("/documentation")}>Documentation</Link>
                 <Link
                   href="/donate"
                   className="bg-yellow-400 text-blue-900 px-3 py-1.5 rounded font-semibold hover:bg-yellow-300 transition"
@@ -219,6 +220,7 @@ export default function Navbar({ showSponsorMenu = false }) {
                 <Link href="/guest" className={`${isActive("/guest")} block`} onClick={() => setIsOpen(false)}>Guests</Link>
                 <Link href="/login" className={`${isActive("/login")} block`} onClick={() => setIsOpen(false)}>Login</Link>
                 <Link href="/register" className={`${isActive("/register")} block`} onClick={() => setIsOpen(false)}>Register</Link>
+                <Link href="/documentation" className={`${isActive("/documentation")} block`} onClick={() => setIsOpen(false)}>Documentation</Link>
                 <Link href="/donate" className={`${isActive("/donate")} block`} onClick={() => setIsOpen(false)}>Donate</Link>
               </>
             )}

@@ -24,7 +24,7 @@ export default function SponsorProfile() {
     fetchProfile();
   }, [user]);
 
-  if (loading) return <p>Loading profile...</p>;
+  if (loading) return <p>Loading profile...Make sure you are a registered sponsor and logged in.</p>;
 
   return (
     <div className="pt-6">

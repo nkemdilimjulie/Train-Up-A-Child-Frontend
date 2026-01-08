@@ -145,7 +145,7 @@ export default function DonatePage() {
 
     // Check if user is logged in
     if (!user?.username) {
-      setError("You must be logged in as a sponsor to donate.");
+      setError("To donate using this option, you must be registered and logged in as a sponsor. Or, use the Fast Donate option."); 
       return;
     }
 
@@ -193,8 +193,7 @@ export default function DonatePage() {
             Sponsor Donation 🌟
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed">
-            As a logged-in sponsor, your donation will be securely attached to your sponsor profile
-            and help children in need.
+            As a registered and logged-in sponsor, your donation will be securely attached to your sponsor profile.
           </p>
         </div>
       </motion.div>
@@ -208,7 +207,7 @@ export default function DonatePage() {
         transition={{ delay: 0.2 }}
       >
         <h1 className="text-2xl font-bold mb-4 text-center text-green-700">
-          Donate as Sponsor
+          Donate as Registered Sponsor
         </h1>
 
         {error && <p className="text-red-500 mb-2 text-center">{error}</p>}

@@ -392,12 +392,12 @@ export default function ChildListPage() {
                       (e.currentTarget.src = "/images/placeholder-child.jpg")
                     }
                   />
-                  <button
+                  {/* <button
                     onClick={() => handleRemovePhoto(child.id)}
                     className="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 rounded text-xs"
                   >
                     Remove
-                  </button>
+                  </button> */}
                 </div>
               ) : (
                 <div className="w-32 h-32 bg-gray-200 rounded-full mb-3 flex flex-col items-center justify-center text-gray-500 text-sm">

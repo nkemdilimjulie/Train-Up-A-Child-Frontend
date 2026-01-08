@@ -59,7 +59,7 @@ export default function SponsorFormPage() {
 
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Something went wrong.");
+        setError(data.error || "Before you can submit a form, you have to register first. Click on Home ==> Register.");
         return;
       }
 
@@ -80,7 +80,7 @@ export default function SponsorFormPage() {
       {/* ✅ Professional sponsor instruction */}
       <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4 rounded">
         <p className="text-gray-700">
-          <b>To become a Sponsor:</b> Register first.
+          <b>To obtain a Sponsor Profile:</b> Register first.
           <br />
           (Click Register. Remember to select the <b>sponsor</b> role on the registration form)
         </p>

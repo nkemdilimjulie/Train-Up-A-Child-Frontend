@@ -42,7 +42,7 @@ export default function FastDonation() {
   return (
     <div className="bg-green-50 border-l-4 border-green-400 p-4 mb-6 rounded-lg text-sm text-gray-700 shadow-sm">
       <p className="mb-3">
-        For a fast contribution, <strong>without registration or login</strong>, you can donate instantly below.
+        For a fast contribution, <strong>without registration or login</strong>, you can donate instantly by clicking on <strong>Donate Fast</strong> button.
       </p>
 
       {error && <p className="text-red-500 mb-2 text-center">{error}</p>}

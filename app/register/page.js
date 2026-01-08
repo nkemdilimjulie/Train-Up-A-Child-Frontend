@@ -78,11 +78,13 @@ export default function RegisterPage() {
   };
 
   return (
+    <div> <FastDonation/>
     <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow">
+     
       <h1 className="text-2xl font-bold mb-4">Register</h1>
       {error && <p className="text-red-500 mb-2">{error}</p>}
 
-      <FastDonation/>
+      
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Username */}
@@ -210,6 +212,7 @@ export default function RegisterPage() {
           Register
         </button>
       </form>
+    </div>
     </div>
   );
 }
