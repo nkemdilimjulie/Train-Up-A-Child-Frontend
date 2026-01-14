@@ -1,121 +1,3 @@
-// "use client";
-
-// import { useState, useEffect, useRef } from "react";
-// import { Copy, ChevronDown, ChevronUp } from "lucide-react";
-
-// // Sections
-// const sections = [
-//   { id: "overview", title: "Overview", content: <p>Welcome to <strong>Train-Up-A-Child</strong> documentation. This platform enables individuals to sponsor and support underprivileged children securely. This page provides an overview of features, user guides, and developer references for managing donations, sponsor profiles, and children data.</p> },
-//   { id: "features", title: "Key Features", content: <ul className="list-disc ml-6"><li>Sponsor Donations</li><li>Sponsor Dashboard</li><li>Children Management</li><li>User Accounts</li></ul> },
-//   { id: "getting-started", title: "Getting Started", content: <ol className="list-decimal ml-6"><li>Register and confirm email</li><li>Login to access features</li></ol> },
-//   { id: "donations", title: "Making a Donation", content: <ol className="list-decimal ml-6"><li>Navigate to Donate Page</li><li>Enter amount</li><li>Click Donate</li><li>Complete Stripe payment</li></ol> },
-//   { id: "dashboard", title: "Sponsor Dashboard", content: <ul className="list-disc ml-6"><li>Total Donations</li><li>Donations Made</li><li>Children Helped</li></ul> },
-//   { id: "developer-api", title: "Developer Reference (API)", content: <p>Use DRF TokenAuthentication, include token in API requests.</p> },
-//   { id: "technical", title: "Technical Notes", content: <ul className="list-disc ml-6"><li>Next.js 15, React 18</li><li>Django 5.2, DRF</li><li>Token-based Auth</li><li>Stripe Payments</li></ul> },
-//   { id: "contact", title: "Contact & Support", content: <p>Email: <a href="mailto:support@trainupachild.org" className="text-blue-600 underline">support@trainupachild.org</a></p> },
-// ];
-
-// // Copy button
-// function CopyButton({ code }) {
-//   const [copied, setCopied] = useState(false);
-//   const handleCopy = () => {
-//     navigator.clipboard.writeText(code);
-//     setCopied(true);
-//     setTimeout(() => setCopied(false), 1500);
-//   };
-//   return (
-//     <button
-//       onClick={handleCopy}
-//       className="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded text-xs hover:bg-blue-700 transition"
-//     >
-//       {copied ? "Copied!" : <Copy size={14} />}
-//     </button>
-//   );
-// }
-
-// export default function DocumentationPage() {
-//   const [openIndex, setOpenIndex] = useState(null);
-//   const [activeId, setActiveId] = useState(sections[0].id);
-//   const sectionRefs = useRef([]);
-
-//   // Scroll tracking for active section
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       (entries) => {
-//         entries.forEach((entry) => {
-//           if (entry.isIntersecting) {
-//             setActiveId(entry.target.id);
-//           }
-//         });
-//       },
-//       { rootMargin: "-50% 0px -50% 0px" } // triggers when section is roughly centered
-//     );
-
-//     sectionRefs.current.forEach((ref) => {
-//       if (ref) observer.observe(ref);
-//     });
-
-//     return () => {
-//       sectionRefs.current.forEach((ref) => {
-//         if (ref) observer.unobserve(ref);
-//       });
-//     };
-//   }, []);
-
-//   const toggleSection = (index) => {
-//     setOpenIndex(openIndex === index ? null : index);
-//   };
-
-//   const scrollToSection = (id) => {
-//     const el = document.getElementById(id);
-//     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-//   };
-
-//   return (
-//     <div className="flex max-w-7xl mx-auto p-6 gap-8">
-//       {/* Quick Navigation Sidebar */}
-//       <nav className="hidden md:block w-64 sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto border-r pr-4">
-//         <h2 className="font-bold text-lg mb-4">Quick Navigation</h2>
-//         <ul className="space-y-2">
-//           {sections.map((sec) => (
-//             <li key={sec.id}>
-//               <button
-//                 onClick={() => scrollToSection(sec.id)}
-//                 className={`text-left w-full px-2 py-1 rounded hover:bg-gray-200 transition ${
-//                   activeId === sec.id ? "bg-blue-100 font-semibold" : ""
-//                 }`}
-//               >
-//                 {sec.title}
-//               </button>
-//             </li>
-//           ))}
-//         </ul>
-//       </nav>
-
-//       {/* Main Documentation Content */}
-//       <div className="flex-1 space-y-6">
-//         <h1 className="text-3xl font-bold text-blue-700">Train-Up-A-Child Documentation</h1>
-//         {sections.map((sec, idx) => (
-//           <div
-//             key={sec.id}
-//             id={sec.id}
-//             ref={(el) => (sectionRefs.current[idx] = el)}
-//             className="border rounded-lg overflow-hidden"
-//           >
-//             <button
-//               onClick={() => toggleSection(idx)}
-//               className="w-full text-left p-4 bg-gray-100 flex justify-between items-center hover:bg-gray-200 transition"
-//             >
-//               <span className="font-semibold">{sec.title}</span>
-//               {openIndex === idx ? <ChevronUp /> : <ChevronDown />}
-//             </button>
-//             {openIndex === idx && <div className="p-4 bg-white">{sec.content}</div>}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
 
 "use client";
 
@@ -123,49 +5,46 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CodeBlock, dracula } from "react-code-blocks";
 
-// Quick links for sections
+// Quick links & accordion sections
 const SECTIONS = [
+  {
+    id: "overview",
+    title: "Overview",
+    content: (
+      <>
+        <p>
+          Welcome to the <strong>Train-Up-A-Child</strong> documentation.
+          This platform enables individuals to sponsor and support
+          underprivileged children securely.
+        </p>
+
+        <h3 className="font-semibold mt-4">Key Features</h3>
+        <ul className="list-disc ml-6 mt-2 space-y-2">
+          <li><strong>Sponsor Donations:</strong> Secure, profile-linked donations with Stripe.</li>
+          <li><strong>Sponsor Dashboard:</strong> Track donations and supported children.</li>
+          <li><strong>Children Management:</strong> View profiles and monitor sponsorship impact.</li>
+          <li><strong>User Accounts:</strong> Role-based access with token authentication.</li>
+        </ul>
+      </>
+    ),
+  },
   {
     id: "getting-started",
     title: "Getting Started",
     content: (
       <>
-        <p>Learn how to set up your project locally.</p>
-        <CodeBlock
-          text={`git clone https://github.com/your-repo.git
-cd your-repo
-npm install
-npm run dev`}
-          language="bash"
-          theme={dracula}
-          showLineNumbers
-        />
-      </>
-    ),
-  },
-  {
-    id: "authentication",
-    title: "Authentication",
-    content: (
-      <>
-        <p>
-          We use <strong>DRF Token Authentication</strong>. Tokens are stored in
-          <code>localStorage</code> and used in fetch requests.
-        </p>
-        <CodeBlock
-          text={`// Example: sending token in fetch
-fetch('/api/donations/sponsor-checkout/', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': \`Token \${token}\`
-  },
-  body: JSON.stringify({ amount })
-})`}
-          language="javascript"
-          theme={dracula}
-          showLineNumbers
-        />
+        <h3 className="font-semibold mt-2">Registration</h3>
+        <ul className="list-disc ml-6 mt-2 space-y-1">
+          <li>Navigate to Sign Up.</li>
+          <li>Select Sponsor, Child, or Guest.</li>
+          <li>Fill required details.</li>
+        </ul>
+
+        <h3 className="font-semibold mt-4">Login</h3>
+        <ul className="list-disc ml-6 mt-2 space-y-1">
+          <li>Enter username and password.</li>
+          <li>Access role-specific features.</li>
+        </ul>
       </>
     ),
   },
@@ -174,22 +53,82 @@ fetch('/api/donations/sponsor-checkout/', {
     title: "Sponsor Dashboard",
     content: (
       <>
-        <p>
-          Shows logged-in sponsors’ profile, donations, and impact summary.  
-          Uses the token to fetch data from the backend.
-        </p>
+        <ul className="list-disc ml-6 mt-2 space-y-1">
+          <li>Total Donations</li>
+          <li>Donations Made</li>
+          <li>Children Helped</li>
+          <li>Quick access to profile & history</li>
+        </ul>
       </>
     ),
   },
   {
-    id: "fast-donate",
-    title: "Fast Donate",
+    id: "children-profiles",
+    title: "Children Profiles",
     content: (
       <>
-        <p>
-          Allows donations without login. Great for quick support.  
-          Redirects to Stripe checkout session directly.
-        </p>
+        <ul className="list-disc ml-6 mt-2 space-y-1">
+          <li>Name, age, and location</li>
+          <li>Sponsorship status</li>
+          <li>Key needs and progress updates</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "developer-reference",
+    title: "Developer Reference (API)",
+    content: (
+      <>
+        <p>Uses <strong>DRF TokenAuthentication</strong>.</p>
+
+        <CodeBlock
+          text={`Authorization: Token <your-token-here>`}
+          language="http"
+          theme={dracula}
+        />
+
+        <h3 className="font-semibold mt-4">Sample Donation Request</h3>
+        <CodeBlock
+          text={`const token = localStorage.getItem("authToken");
+
+fetch("http://127.0.0.1:8000/api/donations/sponsor-checkout/", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": \`Token \${token}\`
+  },
+  body: JSON.stringify({ amount: 50 })
+});`}
+          language="javascript"
+          theme={dracula}
+        />
+      </>
+    ),
+  },
+  {
+    id: "technical-notes",
+    title: "Technical Notes",
+    content: (
+      <>
+        <ul className="list-disc ml-6 mt-2 space-y-1">
+          <li>Frontend: Next.js 15, React 18</li>
+          <li>Backend: Django 5.2, DRF, PostgreSQL</li>
+          <li>Authentication: Token-based</li>
+          <li>Payments: Stripe API</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "contact-support",
+    title: "Contact & Support",
+    content: (
+      <>
+        <ul className="list-disc ml-6 mt-2 space-y-1">
+          <li>Email: support@trainupachild.org</li>
+          <li>Use the in-app contact form</li>
+        </ul>
       </>
     ),
   },
@@ -197,29 +136,31 @@ fetch('/api/donations/sponsor-checkout/', {
 
 export default function DocumentationPage() {
   const [openSection, setOpenSection] = useState(null);
+  const [activeSection, setActiveSection] = useState(null);
 
-  // Handle smooth scrolling when hash changes
+  // Sync with URL hash
   useEffect(() => {
-    const handleHashChange = () => {
+    const syncFromHash = () => {
       const id = window.location.hash.replace("#", "");
       if (!id) return;
-      setOpenSection(id); // Open the clicked section
+      setOpenSection(id);
+      setActiveSection(id);
+
       const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
-    window.addEventListener("hashchange", handleHashChange);
+    window.addEventListener("hashchange", syncFromHash);
+    syncFromHash();
 
-    // Check on initial load if there is a hash
-    handleHashChange();
-
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", syncFromHash);
   }, []);
 
   const toggleSection = (id) => {
-    setOpenSection(openSection === id ? null : id);
+    const next = openSection === id ? null : id;
+    setOpenSection(next);
+    setActiveSection(id);
+    window.history.replaceState(null, "", `#${id}`);
   };
 
   return (
@@ -227,10 +168,6 @@ export default function DocumentationPage() {
       <h1 className="text-4xl font-bold text-blue-700 mb-6">
         Train-Up-A-Child Documentation
       </h1>
-      <p className="mb-8 text-gray-700 max-w-3xl">
-        Welcome to the interactive developer documentation for Train-Up-A-Child.
-        Use the sections below to quickly navigate through key features and setup instructions.
-      </p>
 
       {/* Quick Links */}
       <div className="mb-8 sticky top-6 bg-gray-50 z-10 p-4 rounded shadow-sm">
@@ -240,7 +177,12 @@ export default function DocumentationPage() {
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="px-3 py-1 rounded bg-blue-100 text-blue-700 hover:bg-blue-200 transition font-medium"
+              className={`px-3 py-1 rounded transition font-medium
+                ${
+                  activeSection === s.id
+                    ? "bg-blue-600 text-white"
+                    : "bg-blue-100 text-blue-700 hover:bg-blue-200"
+                }`}
             >
               {s.title}
             </a>
@@ -254,11 +196,12 @@ export default function DocumentationPage() {
           <div key={section.id} id={section.id} className="bg-white rounded-xl shadow">
             <button
               onClick={() => toggleSection(section.id)}
-              className="w-full flex justify-between items-center px-6 py-4 font-semibold text-left text-blue-700 hover:bg-blue-50 rounded-t-xl focus:outline-none"
+              className="w-full flex justify-between items-center px-6 py-4 font-semibold text-left text-blue-700 hover:bg-blue-50 rounded-t-xl"
             >
               {section.title}
               <span>{openSection === section.id ? "▲" : "▼"}</span>
             </button>
+
             <AnimatePresence>
               {openSection === section.id && (
                 <motion.div
@@ -277,4 +220,3 @@ export default function DocumentationPage() {
     </div>
   );
 }
-
