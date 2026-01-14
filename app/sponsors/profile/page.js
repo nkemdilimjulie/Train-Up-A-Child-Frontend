@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
+import ReturnToLastPage from "@/components/ReturnToLastPage";
+
 
 export default function SponsorProfile() {
   const { user } = useAuth();
@@ -28,6 +30,8 @@ export default function SponsorProfile() {
 
   return (
     <div className="pt-6">
+      
+
       <h1 className="text-2xl font-bold mb-4 text-blue-700">Sponsor Profile</h1>
 
       {profile ? (
@@ -46,6 +50,8 @@ export default function SponsorProfile() {
       <button className="mt-6 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500 transition">
         Update Information
       </button>
+      <br /> <br /> <br />
+      <ReturnToLastPage fallback="/sponsors/dashboard" />
     </div>
   );
 }

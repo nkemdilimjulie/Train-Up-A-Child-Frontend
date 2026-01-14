@@ -72,19 +72,17 @@ export default function SponsorFormPage() {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow bg-white">
-      
-     
+      <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4 rounded">
+        <p className="text-gray-700">
+          To obtain a Sponsor Profile: Register first.
+          (Click Register. Remember to select the <b>sponsor</b> role on the registration form)
+        </p>
+      </div>
 
       <h1 className="text-2xl font-bold mb-4 text-center">Sponsor Profile Form</h1>
 
       {/* ✅ Professional sponsor instruction */}
-      <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4 rounded">
-        <p className="text-gray-700">
-          <b>To obtain a Sponsor Profile:</b> Register first.
-          <br />
-          (Click Register. Remember to select the <b>sponsor</b> role on the registration form)
-        </p>
-      </div>
+      
 
     
       {error && <p className="text-red-500 mb-2">{error}</p>}

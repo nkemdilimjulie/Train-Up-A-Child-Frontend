@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackToTopButton from "@/components/BackToTopButton";
+import ReturnToLastPage from "@/components/ReturnToLastPage";
 
 export default function AboutPage() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -56,7 +57,7 @@ export default function AboutPage() {
           className="text-green-700 underline font-semibold hover:text-green-900"
         >
           Proverbs 22:6
-      </a>.
+        </a>
       </div>
 
       <p className="text-gray-700 text-lg leading-relaxed mb-6">
@@ -155,7 +156,7 @@ export default function AboutPage() {
         </div>
       )}
 
-      {/* ✉️ Contact Section */}
+     
       <div className="mt-16 text-center">
         <p className="text-gray-700 mb-2">
           For sponsorship inquiries or donations: Fill out the form below to contact us.
@@ -261,7 +262,7 @@ export default function AboutPage() {
           </div>
         </form>
       </div>
-
+      <ReturnToLastPage fallback="/" />
       <BackToTopButton />
     </div>
   );

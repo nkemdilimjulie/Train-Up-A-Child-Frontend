@@ -41,6 +41,8 @@ export default function LoginPage() {
         return;
       }
 
+      localStorage.setItem("authToken", data.token);
+
       // Save login in context
       login({
         username: data.username,
@@ -67,10 +69,12 @@ export default function LoginPage() {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow">
+      <FastDonation/>
       <h1 className="text-2xl font-bold mb-4">Login</h1>
       {error && <p className="text-red-500 mb-2">{error}</p>}
+      <p>(Make sure you are already registered)</p>
 
-      <FastDonation/>
+      
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input

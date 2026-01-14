@@ -1,5 +1,6 @@
 "use client";
 
+import ReturnToLastPage from "@/components/ReturnToLastPage";
 import { useRouter } from "next/navigation";
 
 export default function GuestPage() {
@@ -44,6 +45,7 @@ export default function GuestPage() {
         </button>
 
       </div>
+      <ReturnToLastPage fallback="/" />
       <footer className="mt-12 text-gray-500 text-sm">
           Register as a Sponsor and have a Sponsor profile.
       </footer>

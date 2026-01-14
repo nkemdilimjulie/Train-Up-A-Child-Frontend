@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import TopFeatureSection from "@/components/TopFeatureSection";
 import BackToTopButton from "@/components/BackToTopButton";
 import FastDonation from "@/components/FastDonation";
-
+import ReturnToLastPage from "@/components/ReturnToLastPage";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -35,17 +35,20 @@ export default function SponsorsPage() {
         initial="hidden"
         animate="visible"
         transition={{ delay: 0.2 }}
-      >
-        
-     
-       
+      >       
         <SponsorFormPage />
+        
         <BackToTopButton />
-      {/* ✅ Back to top button */}
-      </motion.div>
+        <ReturnToLastPage fallback="/" />
 
+      {/* ✅ Back to top button */}
+
+      </motion.div>
+      
       {/* Fast Donation (no login required) */}
       <FastDonation link="/fast-donate" />
+
+      
     </div>
   );
 }
