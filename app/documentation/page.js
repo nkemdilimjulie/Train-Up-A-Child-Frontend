@@ -14,7 +14,7 @@ const SECTIONS = [
       <>
         <p>
           Welcome to the <strong>Train-Up-A-Child</strong> documentation.
-          This platform enables individuals to sponsor and support
+          This platform enables individuals to sponsor and support the education of 
           underprivileged children securely.
         </p>
 
@@ -22,7 +22,7 @@ const SECTIONS = [
         <ul className="list-disc ml-6 mt-2 space-y-2">
           <li><strong>Sponsor Donations:</strong> Secure, profile-linked donations with Stripe.</li>
           <li><strong>Sponsor Dashboard:</strong> Track donations and supported children.</li>
-          <li><strong>Children Management:</strong> View profiles and monitor sponsorship impact.</li>
+          <li><strong>Children Management:</strong> View profiles of children and monitor sponsorship impact.</li>
           <li><strong>User Accounts:</strong> Role-based access with token authentication.</li>
         </ul>
       </>
@@ -35,7 +35,7 @@ const SECTIONS = [
       <>
         <h3 className="font-semibold mt-2">Registration</h3>
         <ul className="list-disc ml-6 mt-2 space-y-1">
-          <li>Navigate to Sign Up.</li>
+          <li>Navigate to <strong>Register</strong> in order to Sign Up.</li>
           <li>Select Sponsor, Child, or Guest.</li>
           <li>Fill required details.</li>
         </ul>
@@ -113,7 +113,7 @@ fetch("http://127.0.0.1:8000/api/donations/sponsor-checkout/", {
       <>
         <ul className="list-disc ml-6 mt-2 space-y-1">
           <li>Frontend: Next.js 15, React 18</li>
-          <li>Backend: Django 5.2, DRF, PostgreSQL</li>
+          <li>Backend: Python, Django 5.2, DRF, PostgreSQL</li>
           <li>Authentication: Token-based</li>
           <li>Payments: Stripe API</li>
         </ul>
@@ -127,7 +127,7 @@ fetch("http://127.0.0.1:8000/api/donations/sponsor-checkout/", {
       <>
         <ul className="list-disc ml-6 mt-2 space-y-1">
           <li>Email: support@trainupachild.org</li>
-          <li>Use the in-app contact form</li>
+          <li>Use the contact form in the <strong>About Us</strong> page </li>
         </ul>
       </>
     ),
