@@ -10,30 +10,25 @@ export default function FaqList({ language }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-
     fetchFaqs(language)
-      .then(data => setFaqs(data))
-      .catch(err => console.error(err))
+      .then(setFaqs)
+      .catch(console.error)
       .finally(() => setLoading(false));
-
   }, [language]);
 
   if (loading) return <p>Loading FAQs…</p>;
 
-  console.log("FAQ sample:", faqs[0]);
-  
   return (
     <div>
       {faqs.map((faq) => (
         <FaqItem
-            key={faq.slug}
-            question={faq.question}
-            answer={faq.answer}
-            faq={faq}
+          key={faq.slug}
+          faqSlug={faq.slug}
+          question={faq.question}
+          answer={faq.answer}
+          language={language}
         />
-    ))}
-
+      ))}
     </div>
   );
 }

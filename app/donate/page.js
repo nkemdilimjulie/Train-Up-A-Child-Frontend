@@ -1,4 +1,5 @@
-
+// donate/page.js
+// This is the main donation page for registered sponsors. It allows logged-in users to enter a donation amount and initiates the payment process through the backend API. The page also includes a section for fast donations that do not require login, linking to a separate fast donation page. The design is responsive and uses Framer Motion for smooth animations.
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,6 +8,7 @@ import { motion } from "framer-motion";
 import { useAuth } from "@/context/AuthContext";
 import FastDonation from "@/components/FastDonation";
 import DonateButton from "@/components/DonateButton";
+
 
 export default function DonatePage() {
   const { user } = useAuth();

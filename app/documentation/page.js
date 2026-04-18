@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CodeBlock, dracula } from "react-code-blocks";
 
+
 // Quick links & accordion sections
 const SECTIONS = [
   {

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
 import FastDonation from "@/components/FastDonation";
 
+
 export default function RegisterPage() {
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");

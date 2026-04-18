@@ -6,6 +6,7 @@ import { useAuth } from "../../context/AuthContext";
 import { Eye, EyeOff } from "lucide-react";
 import FastDonation from "@/components/FastDonation";
 
+
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import BackToTopButton from "@/components/BackToTopButton";
 import ReturnToLastPage from "@/components/ReturnToLastPage";
 
+
 export default function AboutPage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);

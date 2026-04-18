@@ -3,6 +3,7 @@
 "use client";
 
 import Link from "next/link";
+import LanguageSelect from "@/components/LanguageSelect";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
           Empowering underprivileged children through sponsorships. <br />
           Help to sponsor poor children's education and support their wellbeing in remote areas.        </p>
       </header>
-
+      
       <main className="flex flex-col md:flex-row gap-6">
         <Link
           href="/register"
@@ -28,7 +29,7 @@ export default function Home() {
           Login
         </Link>
         <Link
-          href="/FAQItem"
+          href="/faqs"
           className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
         >
           FAQs
