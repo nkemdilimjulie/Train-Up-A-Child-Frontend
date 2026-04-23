@@ -1,14 +1,16 @@
+// app/about/page.js
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackToTopButton from "@/components/BackToTopButton";
 import ReturnToLastPage from "@/components/ReturnToLastPage";
-
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function AboutPage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState(null);
   const router = useRouter();
 
   const team = [
@@ -196,9 +198,16 @@ export default function AboutPage() {
           onSubmit={async (e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
-            const body = Object.fromEntries(formData);
+            const body = {
+              ...Object.fromEntries(formData),
+              captcha_token: captchaToken,
+            };
 
             try {
+              if (!captchaToken) {
+                alert("⚠️ Please verify that you are not a robot.");
+                return;
+              }
               const response = await fetch("http://127.0.0.1:8000/api/contact/send-email/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -208,6 +217,7 @@ export default function AboutPage() {
               if (response.ok) {
                 e.target.reset();
                 setShowSuccess(true);
+                setCaptchaToken(null);
 
                 // Redirect after 2 seconds
                 setTimeout(() => {
@@ -234,7 +244,7 @@ export default function AboutPage() {
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Your Email</label>
+            <label className="block text-gray-700 font-semibold mb-2">Your Email (an existing and active email address) </label>
             <input
               type="email"
               name="email"
@@ -251,6 +261,13 @@ export default function AboutPage() {
               required
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
+          </div>
+
+          <div className="mb-6 flex justify-center">
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={(token) => setCaptchaToken(token)}
+            />
           </div>
 
           <div className="text-center">
